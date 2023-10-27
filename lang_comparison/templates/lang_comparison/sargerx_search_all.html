@@ -1,0 +1,89 @@
+{% load static %}
+<head>
+    {% comment %} <link rel="stylesheet", type = 'text/css' href="{%static 'lang_comparison\table_in_div.css' %}"> {% endcomment %}
+    <link rel="stylesheet", type = 'text/css' href="{%static 'lang_comparison\sagerx_style.css' %}">
+    
+
+</head>
+<html>
+{% comment %} <script src="{% static 'lang_comparison\lang_cards.js' %}"></script> {% endcomment %}
+<body>
+    {% comment %} <button id = 'enter_button' onclick="enterLang()">Confirm Lang</button> {% endcomment %}
+
+    
+    <div class="card-group">
+        <div class="big-card card" data-index="0" data-status="active">
+
+            <div class = "container my-4">
+                <form method="get">
+                {{ filter.form.as_table }}</form>
+                <form method="get">
+                {{ filter.form.as_table }}</form>
+                <table class="data-table">
+                    <th>Language</th>
+                    <th>Segment</th>
+                    <th>Class</th>
+                    <th>Lorem</th>
+                    <th>Rep %</th>
+                {% for line in filter.qs %}
+                    <tr>
+                        <td>{{ line.language }}</td>
+                        <td>{{ line.segment }}</td>
+                        <td>{{ line.segment_class }}</td>
+                        <td>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</td>
+                        <td>{{ line.representation_percent }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="big-card card" data-index="1" data-status="unknown">
+            <div class = "table-group">
+                <label>Lang1</label>
+
+                {% comment %} <table class="form-table"><form method="get">
+                {{ filter.form.as_table }}</form>
+                </table> {% endcomment %}
+                <table class="data-table">
+                    <th>Language</th>
+                    <th>Segment</th>
+                    <th>Class</th>
+                    <th>Rep %</th>
+                {% for line in filter.qs %}
+                    <tr>
+                        <td>{{ line.language }}</td>
+                        <td>{{ line.segment }}</td>
+                        <td>{{ line.segment_class }}</td>
+                        <td>{{ line.representation_percent }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="big-card card" data-index="2" data-status="unknown">
+            <div class = "table-group">
+                <label>Lang2</label>
+                {% comment %} <table class="form-table"><form method="get">
+                {{ filter.form.as_table }}</form>
+                </table> {% endcomment %}
+                <table class="data-table">
+                    <th>Language</th>
+                    <th>Segment</th>
+                    <th>Class</th>
+                    <th>Rep %</th>
+                {% for line in filter.qs %}
+                    <tr>
+                        <td>{{ line.language }}</td>
+                        <td>{{ line.segment }}</td>
+                        <td>{{ line.segment_class }}</td>
+                        <td>{{ line.representation_percent }}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+{% comment %} </div> {% endcomment %}

@@ -1,0 +1,47 @@
+
+{% load static %}
+<head>
+    <link rel = "stylesheet", type="text/css" href= "{%static 'app1\styles.css' %}">
+</head>
+<body>
+    <div class="container my-4">
+        <form method="get">
+            <div class="row">
+                {% for field in filter.form %}
+                <div class="col-md-3">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Search</button>
+        </form>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                {% for field in field_names %}
+                    <td>{{ field }}</td>
+                {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for obj in filter.qs %}
+                <tr>
+                    {% for field in field_names %}
+                        {% if obj|get_field_value:field|slice:":4" == "http" %}
+                            <td><a href="{{ obj|get_field_value:field }}" target="_blank">{{ obj|to_verbose_name:field }}</a></td>
+                        {% else %}
+                            <td>{{ obj|get_field_value:field }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="5">No results found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </body>

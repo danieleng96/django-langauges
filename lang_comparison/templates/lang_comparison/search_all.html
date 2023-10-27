@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    {% comment %} <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> {% endcomment %}
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+    <link rel="stylesheet", type = 'text/css' href="{%static 'lang_comparison\table_in_div.css' %}">
+    {% comment %} <link rel="stylesheet", type = 'text/css' href="{%static 'lang_comparison\sagerx_style.css' %}"> {% endcomment %}
+
+</head>
+{% comment %} <script src="{% static 'lang_comparison\lang_cards.js' %}"></script> {% endcomment %}
+    <body>
+        <div class ="menu-wrapper">
+            <div class = "loaded-languages">
+                <td>Languages</td>
+                <table class="agg-table">
+                    <th>Loaded Languages</th>
+                    <th>Remove</th>
+                {% for lang in langlist %}
+                <tr>
+                <td>{{lang}}</td>
+                <td>X</td>
+                </tr>
+                {% endfor %}
+                </table>
+            </div>
+            <div class="enter-console">
+            <button><a href="{% url "parse_lang" langstring=langstring %}">Show Analysis with these</a></button>
+
+            <table class="form-table"><form method="get">
+            {{ filter.form.as_table }}</form>
+            </table>
+        </div>
+    </div>
+
+        {% comment %} <button id = 'enter_button' onclick="enterLang()">Confirm Lang</button> {% endcomment %}
+
+        
+        <div class="card-group">
+            {% comment %} <div class="big-card card" data-index="0" data-status="active"> {% endcomment %}
+                {% comment %} <button><a href="{% url "parse_lang" langstring=langstring %}">Show Analysis with these</a></button>
+
+                    <table class="form-table"><form method="get">
+                    {{ filter.form.as_table }}</form>
+                    </table> {% endcomment %}
+                {% comment %} <div class = "table-group">
+                    <button><a href="{% url "parse_lang" langstring=langstring %}">Show Analysis with these</a></button>
+
+                    <table class="form-table"><form method="get">
+                    {{ filter.form.as_table }}</form>
+                    </table> {% endcomment %}
+                    
+                    {% comment %} <table class="data-table">
+                        <th>Language</th>
+                        <th>Segment</th>
+                        <th>Class</th>
+                        <th>Rep %</th>
+                    {% for line in filter.qs %}
+                        <tr>
+                            <td>{{ line.language }}</td>
+                            <td>{{ line.segment }}</td>
+                            <td>{{ line.segment_class }}</td>
+                            <td>{{ line.representation_percent }}%</td>
+                        </tr>
+                    {% endfor %}
+                    </table> {% endcomment %}
+                {% comment %} </div>
+            </div> {% endcomment %}
+            {% for page in previous_pages %}
+            <div class="big-card card">
+                <div class="card-title">{{page.0.language}}
+                </div>
+                    <div class = "table-group">
+                        <button class = 'btn'>Remove</button>
+                        {% comment %} <table class="form-table"><form method="get">
+                        {{ filter.form.as_table }}</form>
+                        </table> {% endcomment %}
+                        <table class="data-table">
+                            <th>Phoneme</th>
+                            <th>Class</th>
+                            <th>Rep %</th>
+                        {% for line in page %}
+                            <tr>
+                                <td>{{ line.segment }}</td>
+                                <td>{{ line.segment_class }}</td>
+                                <td>{{ line.representation_percent }}%</td>
+                            </tr>
+                        {% endfor %}
+                        </table>
+                    </div>
+            </div>
+            {% endfor %}
+            {% comment %} <div class="big-card card" data-index="2" data-status="unknown">
+                <div class = "table-group">
+                    <label>Lang2</label>
+                    {% comment %} <table class="form-table"><form method="get">
+                    {{ filter.form.as_table }}</form>
+                    </table> {% endcomment %}
+                    {% comment %} <table class="data-table">
+                        <th>Language</th>
+                        <th>Segment</th>
+                        <th>Class</th>
+                        <th>Rep %</th>
+                    {% for line in filter.qs %}
+                        <tr>
+                            <td>{{ line.language }}</td>
+                            <td>{{ line.segment }}</td>
+                            <td>{{ line.segment_class }}</td>
+                            <td>{{ line.representation_percent }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html> {% endcomment %}
+{% comment %} </div> {% endcomment %}

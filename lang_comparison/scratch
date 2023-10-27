@@ -1,0 +1,4 @@
+l = ["5","3",".",".","7",".",".",".","."]
+print(len(set(l)))
+l[:] = [x for x in l if x != '.']
+print(len(l))

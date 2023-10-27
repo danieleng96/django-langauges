@@ -1,0 +1,41 @@
+
+{% comment %} {% extends "mainapp/sidebar.html" %}
+{% block content %} {% endcomment %}
+{% load static %} {% comment %} <link rel="stylesheet", type = 'text/css' href="{%static 'mainapp\card_actions.css' %}"> {% endcomment %}
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href=”http://cdn.pydata.org/bokeh/release/bokeh-widgets-2.4.3.min.css”
+    rel=”stylesheet” type=”text/css”>
+    {% comment %} <link rel="stylesheet", type = 'text/css' href="{%static 'mainapp\card_actions.css' %}"> {% endcomment %}
+    <link rel="stylesheet", type = 'text/css' href="{% static 'mainapp\card_actions.css' %}">
+</head>
+<body>
+<div class = 'obj_activator'>
+    <div class="obj">
+    </div>
+    <div class="obj">
+    </div>
+    <div class="obj">
+    </div>
+    <div class="obj">
+    </div>
+</div>
+<div class="card-groups">
+    <div class="card-group">
+        
+        {% for doc in docs %}
+        {% comment %} <div class="big-card card">Total: ${{doc.total}} Category: {{doc.category}} Date: {{doc.input_time}}<img src="{% static 'mainapp/abnb_2.png' %}" alt="image" class="card_image"></img> {% endcomment %}
+            <div class="big-card card">Total: ${{doc.total}}<br>Category: {{doc.category}}<br>Date: {{doc.input_time}}<img src="{% get_media_prefix %}{{doc.image}}" alt="image" class="card_image"></img>
+        </div>
+        {% endfor %}
+        <div class="small-card card">
+        </div>
+        <div class="small-card card">
+        </div>
+    </div>
+</div>
+
+</body>
+
+    {% comment %} {% endblock %} {% endcomment %}

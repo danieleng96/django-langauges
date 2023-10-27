@@ -1,0 +1,256 @@
+/* html *
+{
+   font-size: 1em !important;
+   color: #0c0c25 !important;
+   font-family: 'Times New Roman' !important;
+} */
+body {
+    display:grid;
+    align-items: center;
+    place-items: center;
+    background-color: beige;
+    grid-template-columns: 2fr 3fr;
+}
+
+.menu-wrapper {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    max-width: 100%;
+    height: 100%;
+    aspect-ratio: 2/1;
+    background-color: azure;
+    display:grid;
+    grid-template-columns: fr1 fr2;
+    grid-template-rows: fr1 fr3;
+    border-radius: 5%;
+    overflow: hidden;
+    /* grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]; */
+  }
+
+.enter-console {
+    background-color: bisque;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    grid-row-start: 0;
+    grid-row-start: 1;
+
+}
+
+.loaded-languages {
+    background-color: rgb(199, 173, 223);
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    grid-row-start: 0;
+    grid-row-start: 1;
+}
+
+.agg-table {
+    border: 3pt solid rgb(252, 252, 252);
+    padding: 10pt;
+
+}
+
+
+
+
+button, .fa {
+    height:5vmin;
+        aspect-ratio: 1;
+        background-color: rgba(236, 0, 0, 0.493);
+}
+.fa {
+    /* background-color: blueviolet; */
+    color: black;
+}
+
+
+
+.table-group {
+    padding: 10vmin;
+    display:grid;
+    align-items: center;
+}
+
+table {
+    position:relative;
+    width:100%;
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.data-table, th, td, tr {
+    width:100%;
+    border: 1pt black solid;
+    text-align: center;
+}
+.data-table {
+    background-color: rgba(0, 0, 0, 0.185);
+}
+
+td {
+    background-color: rgb(241, 233, 255);
+    padding:3px;
+}
+/*form table styling*/
+.form-table {
+    padding-bottom: 10%;
+}
+
+input {
+    position:relative;
+    border-radius: 1vmin;
+    transition: transform 800ms cubic-bezier(.13,.83,.25,.74), background-color 1s, opacity 0.2s, width 800ms cubic-bezier(.13,.83,.25,.74);
+}
+
+.form-table td {
+    border: none;
+    background-color: rgba(210, 210, 210, 0.0);
+}
+
+.form-table th {
+    border: 2pt dotted;
+    background-color: pink;
+}
+
+.card .card-title {
+    /* grid-column-start: 1;
+    grid-column-end: 2; */
+    z-index: 10;
+    position:sticky;
+    top: 0;
+    border: 1pt solid beige;
+    border-bottom-right-radius: 50%;
+    padding: 10pt;
+    font-family: Impact;
+    background-color: bisque;
+    
+}
+
+input:focus {
+    background-color: yellow;
+
+}
+
+td:nth-child(1) {
+    background-color: rgba(187, 223, 255, 0.318);
+}
+
+th {
+    background-color: rgba(210, 210, 210, 0.5);
+    border-radius: 10%;
+}
+
+.card-group,
+.card {
+    aspect-ratio: 5 / 7;
+    /* display:grid;
+    align-items: center; */
+    overflow: auto;
+    /*scrollbar disable and next section*/
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.card::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.card-group{
+    width: 30vmin;
+}
+
+.card {
+    opacity: 0.7;
+    display: grid;
+    place-items: center;
+    /* grid-template-columns: 1fr, 5fr, 1fr; */
+    background-color: rgba(255, 255, 255, 0.808);
+    position: absolute;
+    transition: transform 800ms cubic-bezier(.13,.83,.25,.74), background-color 0.9s cubic-bezier(.13,.83,.25,.74), opacity 0.2s, scale 800ms cubic-bezier(.37,1.03,1,1.17);
+}
+
+.big-card {
+    width: 30vmin;
+    border-radius: 2vmin;
+    border: 2pt dotted;
+    border-color: rgb(108, 0, 208);
+    aspect-ratio: 5 / 7;
+
+}
+
+.little-card {
+    width: 10vmin;
+    border-radius: 2vmin;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.card:nth-child(n):hover {
+    opacity: 1;
+    background-color: rgb(118, 202, 97);
+    z-index: 10;
+
+}
+.card:nth-child(2n):hover {
+    opacity: 1;
+    background-color: rgb(215, 200, 255);
+    z-index: 10;
+}
+
+.card:nth-child(3n):hover {
+    opacity: 1;
+    background-color: rgb(255, 191, 0);
+    z-index: 10;
+}
+.card:nth-child(4n):hover {
+    opacity: 1;
+    background-color: rgb(97, 123, 202);
+    z-index: 10;
+
+}
+
+
+.card:nth-child(1) {
+    z-index: 7;
+}
+.card:nth-child(2) {
+    transform: translateX(-50%) rotate(-5deg);
+    z-index: 6;
+}
+.card:nth-child(3) {
+    transform: translateX(50%) rotate(5deg);
+    z-index: 5;
+}
+.card:nth-child(4) {
+    transform: translateX(100%) rotate(10deg);
+    z-index: 4;
+}
+.card:nth-child(5) {
+    transform: translateX(-100%) rotate(-10deg);
+    z-index: 3;
+}
+.card:nth-child(6) {
+    transform: translateX(-150%) rotate(-10deg);
+    z-index: 2;
+}
+.card:nth-child(7) {
+    transform: translateX(150%) rotate(10deg);
+    z-index: 1;
+}
+
+.card[data-status="unknown"] {
+    background-color: black;
+    transition: scale 800ms cubic-bezier(.37,1.03,1,1.17), background-color 1.2s cubic-bezier(.13,.83,.25,.74), opacity 0.2s;
+    scale:0.75;
+}
+
+.card[data-status="unknown"]:hover {
+    scale:1;
+}
+
+.card[data-status="after"] {
+    transform: translate(-10%,50%), rotate(180deg) scale(0.3);
+}

@@ -1,0 +1,52 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <script>
+        function playItHere(e, link) {
+          var audio = document.createElement("audio");
+          var src = document.createElement("source");
+          src.src = link.href;
+          audio.appendChild(src);
+          audio.play();
+          e.preventDefault();
+        }
+        </script>
+    <main>
+    <h1 id="page_title">Language Comparison</h1>
+
+   <table id ="phoneme_table">
+    <th style = "background-color:orange">Phoneme</th>
+    <th style = "background-color:red">Total Rep %</th>
+
+    {% for title in titles %}
+    <th style = "background-color:lightblue; text-align:center">{{title}}</th>
+    {% endfor %}
+    <tr>
+            {% for vals in features %}
+                {% for val in vals %}
+                    {% if val.hr %}
+                    <td style ="background-color:lightgreen; text-align:center"><a href="{{val.hr}}" onclick="playItHere(event, this)">{{val.phoneme}}</a></td>
+                    {% elif val.phoneme %}
+                    <td style ="background-color:lightblue; text-align:center">{{val.phoneme}}</td>
+                    {% elif val == 1 %}
+                        <td style ="background-color:lightgreen; border-radius:2vmin; text-align:center">✓</td>
+                    {% elif val == 0 %}
+                        <td style ="background-color:pink; border-radius:2vmin; text-align:center">X</td>
+                    {% else %}
+                        <td style ="background-color:lightblue; border-radius:2vmin; text-align:center">{{val}}</td>
+
+                    {% endif %}
+                {%endfor%} 
+
+            </tr>
+            {%endfor%} 
+
+
+
+</table>
+</main>
+</body>
+</html>
